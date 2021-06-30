@@ -14,4 +14,6 @@ chạy chương trình:
     xoa diem:
 		/send a004 [P1] [P2] 	: [p1] = mon hoc
 		/send a0040200
+		
+		K
  [![](https://i0.wp.com/s1.uphinh.org/2021/06/30/204288931_495313621552568_4781529676710631970_n.png)][ket qua]
