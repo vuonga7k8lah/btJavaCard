@@ -1,0 +1,409 @@
+// converted by version 1.3
+// on Wed Jun 30 22:16:42 ICT 2021
+
+.package AppletLuuDiem {
+	.aid 0x11:0x22:0x33:0x44:0x55;
+	.version 1.0;
+
+	.imports {
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x1 1.3;		//javacard/framework
+		0xA0:0x0:0x0:0x0:0x62:0x0:0x1 1.0;		//java/lang
+	}
+
+	.applet {
+		0x11:0x22:0x33:0x44:0x55:0x66 AppletLuuDiem;
+	}
+
+	.constantPool {
+		// 0
+		instanceFieldRef byte[] AppletLuuDiem/sinhVien;
+		// 1
+		instanceFieldRef byte[] AppletLuuDiem/diemThi;
+		// 2
+		instanceFieldRef short AppletLuuDiem/len_diemThi;
+		// 3
+		virtualMethodRef 0.3.1()V;		// register()V
+		// 4
+		virtualMethodRef 0.3.2([BSB)V;		// register([BSB)V
+		// 5
+		staticMethodRef AppletLuuDiem/<init>([BSB)V;
+		// 6
+		staticMethodRef 0.16.1([BS[BSS)S;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+		// 7
+		staticFieldRef byte AppletLuuDiem/soMonThi;
+		// 8
+		classRef AppletLuuDiem;
+		// 9
+		virtualMethodRef 0.3.3()Z;		// selectingApplet()Z
+		// 10
+		virtualMethodRef 0.10.1()[B;		// getBuffer()[B
+		// 11
+		virtualMethodRef 0.10.6()S;		// setIncomingAndReceive()S
+		// 12
+		staticMethodRef 0.7.1(S)V;		// javacard/framework/ISOException.throwIt(S)V
+		// 13
+		virtualMethodRef 0.10.7()S;		// setOutgoing()S
+		// 14
+		virtualMethodRef 0.10.9(S)V;		// setOutgoingLength(S)V
+		// 15
+		virtualMethodRef 0.10.5([BSS)V;		// sendBytesLong([BSS)V
+		// 16
+		virtualMethodRef 0.10.4(SS)V;		// sendBytes(SS)V
+		// 17
+		staticMethodRef 0.3.0()V;		// javacard/framework/Applet.<init>()V
+	}
+
+	.class public AppletLuuDiem 0 extends 0.3 {		// extends javacard/framework/Applet
+
+		.fields {
+			private byte[] diemThi 0;		// [B
+			private byte[] sinhVien 1;		// [B
+			private byte[] position 2;		// [B
+			 short len_diemThi 3;		// S
+			static final byte SV_ID_LENGTH = 4;		// B
+			private static byte soMonThi;		// B
+			static final byte SV_CLA = -96;		// B
+			static final byte INS_NHAP_DIEM = 1;		// B
+			static final byte INS_IN_DIEM = 2;		// B
+			static final byte INS_SUA_DIEM = 3;		// B
+			static final byte INS_XOA_DIEM = 4;		// B
+		}
+
+		.publicMethodTable 7 {
+			equals(Ljava/lang/Object;)Z;
+			register()V;
+			register([BSB)V;
+			selectingApplet()Z;
+			deselect()V;
+			getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;;
+			select()Z;
+			process(Ljavacard/framework/APDU;)V;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method public static install([BSB)V 0 {
+			.stack 5;
+			.locals 0;
+
+				L0:	new 8;		// AppletLuuDiem/AppletLuuDiem
+					dup;
+					aload_0;
+					sload_1;
+					sload_2;
+					invokespecial 5;		// AppletLuuDiem/AppletLuuDiem.<init>([BSB)V
+					pop;
+					return;
+		}
+
+		.method private <init>([BSB)V {
+			.stack 5;
+			.locals 3;
+
+				L0:	aload_0;
+					invokespecial 17;		// javacard/framework/Applet.<init>()V
+					aload_1;
+					sload_2;
+					baload;
+					sstore 4;
+				L1:	sload 4;
+					ifne L3;
+				L2:	aload_0;
+					invokevirtual 3;		// register()V
+					goto L4;
+				L3:	aload_0;
+					aload_1;
+					sload_2;
+					sconst_1;
+					sadd;
+					sload 4;
+					invokevirtual 4;		// register([BSB)V
+				L4:	sload_2;
+					sload 4;
+					sadd;
+					sconst_1;
+					sadd;
+					sstore_2;
+					aload_1;
+					sload_2;
+					baload;
+					sstore 5;
+				L5:	sload_2;
+					sload 5;
+					sadd;
+					sconst_1;
+					sadd;
+					sstore_2;
+					aload_1;
+					sload_2;
+					baload;
+					sstore 6;
+				L6:	sinc 2 1;
+					sload 6;
+					ifeq L8;
+				L7:	aload_0;
+					sconst_4;
+					newarray 11;
+					putfield_a 0;		// reference AppletLuuDiem/AppletLuuDiem.sinhVien
+					aload_1;
+					sload_2;
+					getfield_a_this 0;		// reference AppletLuuDiem/AppletLuuDiem.sinhVien
+					sconst_0;
+					sconst_4;
+					invokestatic 6;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					sinc 2 4;
+					aload_1;
+					sload_2;
+					baload;
+					putstatic_b 7;		// byte AppletLuuDiem/AppletLuuDiem.soMonThi
+					goto L9;
+				L8:	aload_0;
+					sconst_4;
+					newarray 11;
+					dup;
+					sconst_0;
+					bspush 83;
+					bastore;
+					dup;
+					sconst_1;
+					bspush 86;
+					bastore;
+					dup;
+					sconst_2;
+					bspush 48;
+					bastore;
+					dup;
+					sconst_3;
+					bspush 49;
+					bastore;
+					putfield_a 0;		// reference AppletLuuDiem/AppletLuuDiem.sinhVien
+					bspush 9;
+					putstatic_b 7;		// byte AppletLuuDiem/AppletLuuDiem.soMonThi
+				L9:	aload_0;
+					bspush 20;
+					newarray 11;
+					putfield_a 1;		// reference AppletLuuDiem/AppletLuuDiem.diemThi
+					return;
+		}
+
+		.method public process(Ljavacard/framework/APDU;)V 7 {
+			.stack 6;
+			.locals 6;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_0;
+					invokevirtual 9;		// selectingApplet()Z
+					ifeq L2;
+				L1:	return;
+				L2:	aload_1;
+					invokevirtual 10;		// getBuffer()[B
+					astore_2;
+				L3:	aload_1;
+					invokevirtual 11;		// setIncomingAndReceive()S
+					pop;
+					aload_2;
+					sconst_0;
+					baload;
+					bspush -96;
+					if_scmpeq L5;
+				L4:	sspush 28160;
+					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
+				L5:	aload_2;
+					sconst_4;
+					baload;
+					sspush 255;
+					sand;
+					sstore_3;
+				L6:	aload_2;
+					sconst_1;
+					baload;
+					stableswitch L29 0 4 L7 L8 L12 L13 L20;
+				L7:	aload_1;
+					invokevirtual 13;		// setOutgoing()S
+					pop;
+					aload_1;
+					sconst_5;
+					invokevirtual 14;		// setOutgoingLength(S)V
+					aload_1;
+					getfield_a_this 0;		// reference AppletLuuDiem/AppletLuuDiem.sinhVien
+					sconst_0;
+					sconst_4;
+					invokevirtual 15;		// sendBytesLong([BSS)V
+					aload_2;
+					sconst_0;
+					getstatic_b 7;		// byte AppletLuuDiem/AppletLuuDiem.soMonThi
+					bastore;
+					aload_1;
+					sconst_0;
+					sconst_1;
+					invokevirtual 16;		// sendBytes(SS)V
+					goto_w L30;
+				L8:	sload_3;
+					bspush 9;
+					if_scmpgt L11;
+				L9:	sload_3;
+					sconst_2;
+					srem;
+					ifne_w L30;
+				L10:	aload_2;
+					sconst_5;
+					getfield_a_this 1;		// reference AppletLuuDiem/AppletLuuDiem.diemThi
+					sconst_0;
+					sload_3;
+					invokestatic 6;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_0;
+					sload_3;
+					putfield_s 2;		// short AppletLuuDiem/AppletLuuDiem.len_diemThi
+					aload_1;
+					invokevirtual 13;		// setOutgoing()S
+					pop;
+					aload_1;
+					sload_3;
+					invokevirtual 14;		// setOutgoingLength(S)V
+					aload_1;
+					getfield_a_this 1;		// reference AppletLuuDiem/AppletLuuDiem.diemThi
+					sconst_0;
+					sload_3;
+					invokevirtual 15;		// sendBytesLong([BSS)V
+					goto_w L30;
+				L11:	sspush 26368;
+					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
+					goto_w L30;
+				L12:	aload_1;
+					invokevirtual 13;		// setOutgoing()S
+					pop;
+					aload_1;
+					getfield_s_this 2;		// short AppletLuuDiem/AppletLuuDiem.len_diemThi
+					invokevirtual 14;		// setOutgoingLength(S)V
+					aload_1;
+					getfield_a_this 1;		// reference AppletLuuDiem/AppletLuuDiem.diemThi
+					sconst_0;
+					getfield_s_this 2;		// short AppletLuuDiem/AppletLuuDiem.len_diemThi
+					invokevirtual 15;		// sendBytesLong([BSS)V
+					goto_w L30;
+				L13:	aload_2;
+					sconst_2;
+					baload;
+					sstore 4;
+				L14:	sconst_0;
+					sstore 5;
+				L15:	sload 5;
+					getfield_s_this 2;		// short AppletLuuDiem/AppletLuuDiem.len_diemThi
+					if_scmpgt L19;
+				L16:	getfield_a_this 1;		// reference AppletLuuDiem/AppletLuuDiem.diemThi
+					sload 5;
+					baload;
+					sload 4;
+					if_scmpne L18;
+				L17:	getfield_a_this 1;		// reference AppletLuuDiem/AppletLuuDiem.diemThi
+					sload 5;
+					sconst_1;
+					sadd;
+					aload_2;
+					sconst_3;
+					baload;
+					bastore;
+					aload_1;
+					invokevirtual 13;		// setOutgoing()S
+					pop;
+					aload_1;
+					getfield_s_this 2;		// short AppletLuuDiem/AppletLuuDiem.len_diemThi
+					invokevirtual 14;		// setOutgoingLength(S)V
+					aload_1;
+					getfield_a_this 1;		// reference AppletLuuDiem/AppletLuuDiem.diemThi
+					sconst_0;
+					getfield_s_this 2;		// short AppletLuuDiem/AppletLuuDiem.len_diemThi
+					invokevirtual 15;		// sendBytesLong([BSS)V
+					goto L19;
+				L18:	sload 5;
+					sconst_2;
+					sadd;
+					s2b;
+					sstore 5;
+					goto L15;
+				L19:	goto_w L30;
+				L20:	aload_2;
+					sconst_2;
+					baload;
+					sstore 5;
+				L21:	bspush 18;
+					sstore 6;
+				L22:	sconst_0;
+					sstore 7;
+				L23:	sload 7;
+					getfield_s_this 2;		// short AppletLuuDiem/AppletLuuDiem.len_diemThi
+					if_scmpgt L27;
+				L24:	getfield_a_this 1;		// reference AppletLuuDiem/AppletLuuDiem.diemThi
+					sload 7;
+					baload;
+					sload 5;
+					if_scmpne L26;
+				L25:	sload 7;
+					sstore 6;
+					goto L27;
+				L26:	sload 7;
+					sconst_2;
+					sadd;
+					s2b;
+					sstore 7;
+					goto L23;
+				L27:	bspush 20;
+					newarray 11;
+					astore 7;
+				L28:	getfield_a_this 1;		// reference AppletLuuDiem/AppletLuuDiem.diemThi
+					sconst_0;
+					aload 7;
+					sconst_0;
+					sload 6;
+					invokestatic 6;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					getfield_a_this 1;		// reference AppletLuuDiem/AppletLuuDiem.diemThi
+					sload 6;
+					sconst_2;
+					sadd;
+					aload 7;
+					sload 6;
+					getfield_s_this 2;		// short AppletLuuDiem/AppletLuuDiem.len_diemThi
+					sload 6;
+					ssub;
+					sconst_1;
+					sadd;
+					invokestatic 6;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload 7;
+					sconst_0;
+					getfield_a_this 1;		// reference AppletLuuDiem/AppletLuuDiem.diemThi
+					sconst_0;
+					aload 7;
+					arraylength;
+					invokestatic 6;		// javacard/framework/Util.arrayCopy([BS[BSS)S
+					pop;
+					aload_0;
+					getfield_s_this 2;		// short AppletLuuDiem/AppletLuuDiem.len_diemThi
+					sconst_2;
+					ssub;
+					putfield_s 2;		// short AppletLuuDiem/AppletLuuDiem.len_diemThi
+					aload_1;
+					invokevirtual 13;		// setOutgoing()S
+					pop;
+					aload_1;
+					getfield_s_this 2;		// short AppletLuuDiem/AppletLuuDiem.len_diemThi
+					invokevirtual 14;		// setOutgoingLength(S)V
+					aload_1;
+					getfield_a_this 1;		// reference AppletLuuDiem/AppletLuuDiem.diemThi
+					sconst_0;
+					getfield_s_this 2;		// short AppletLuuDiem/AppletLuuDiem.len_diemThi
+					invokevirtual 15;		// sendBytesLong([BSS)V
+					goto L30;
+				L29:	sspush 27904;
+					invokestatic 12;		// javacard/framework/ISOException.throwIt(S)V
+				L30:	return;
+		}
+
+	}
+
+}
